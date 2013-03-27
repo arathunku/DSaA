@@ -1,0 +1,4 @@
+input = File.read('output.txt')
+input_proper = File.read('proper_output_good.txt');
+
+puts input == input_proper

@@ -1,0 +1,48 @@
+			/SH
+			/ST
+-9999			/DH
+-9999			/DT
+1			/IH 1 SH
+2 1			/IH 2 SH
+1 2			/ST
+2			/DH
+1			/SH
+1			/ST
+1			/DT
+			/SH
+			/ST
+4			/IT 4 SH
+4 3			/IT 3 SH
+3 4			/ST
+4			/DH
+3			/SH
+3			/ST
+3			/DT
+			/SH
+			/ST
+5			/IH 5 DT
+6			/IH 6 DH
+7			/IH 7 DT
+8			/IT 8 DH
+9			/IT 9 DT
+			/SH
+			/ST
+3 2 1 4 5 6		/IH 1 IH 2 IH 3 IT 4 IT 5 IT 6 SH
+6 5 4 1 2 3		/ST
+0			/FV 3
+5			/FV 6
+2			/FV 1
+-1			/FV 7
+3 2 1 4 5 6		/RV 7 SH
+3 2 1 4 5 6 1 3 7	/IT 1 IT 3 IT 7 SH
+3 2 4 5 6 3 7		/RV 1 SH
+7 6 5 4 2		/RV 3 ST
+7 3 5 8			/CH 1 IN IH 3 IT 5 IH 7 IT 8 SH
+8 5 3 7			/ST
+2 4 5 6 7 7 3 5 8	/CH 0 AD 1 SH
+8 5 3 7 7 6 5 4 2	/ST
+4			/CL IH 4 SH
+			/RV 4 SH
+5			/IT 5 SH
+			/RV 5 SH
+END OF EXECUTION	/HA
