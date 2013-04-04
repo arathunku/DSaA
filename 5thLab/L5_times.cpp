@@ -46,43 +46,43 @@ void bubbleSort(int array[], int size){
   }
 }
 void mergeSort(int arr[],int len);
-void mergeArr(int *a, int *b, int low, int pivot, int high)
+void mergeArr(int *arr, int *arrAux, int nFrom, int center, int nTo)
 {
     int h,i,j,k;
-    h=low;
-    i=low;
-    j=pivot+1;
-    while((h<=pivot)&&(j<=high)) {
-        if(a[h]<=a[j]) {
-            b[i]=a[h];
+    h=nFrom;
+    i=nFrom;
+    j=center+1;
+    while((h<=center)&&(j<=nTo)) {
+        if(arr[h]<=arr[j]) {
+            arrAux[i]=arr[h];
             h++;
         } else {
-            b[i]=a[j];
+            arrAux[i]=arr[j];
             j++;
         }
         i++;
     }
-    if(h>pivot)  {
-        for(k=j; k<=high; k++)  {
-            b[i]=a[k];
+    if(h>center)  {
+        for(k=j; k<=nTo; k++)  {
+            arrAux[i]=arr[k];
             i++;
         }
     } else {
-        for(k=h; k<=pivot; k++) {
-            b[i]=a[k];
+        for(k=h; k<=center; k++) {
+            arrAux[i]=arr[k];
             i++;
         }
     }
-    for(k=low; k<=high; k++) a[k]=b[k];
+    for(k=nFrom; k<=nTo; k++) arr[k]=arrAux[k];
 }
 
 void auxMergeSort(int arr[],int arrAux[], int nFrom, int nTo)
 {
   if(nFrom<nTo-1) {
-  int nCenter=(nFrom+nTo)/2;
-  auxMergeSort(arr,arrAux,nFrom,nCenter);
-  auxMergeSort(arr,arrAux,nCenter,nTo);
-  mergeArr(arr,arrAux,nFrom,nCenter,nTo); // to implement !!!
+    int nCenter=(nFrom+nTo)/2;
+    auxMergeSort(arr,arrAux,nFrom,nCenter);
+    auxMergeSort(arr,arrAux,nCenter,nTo);
+    mergeArr(arr,arrAux,nFrom,nCenter,nTo);
   }
 }
 void mergeSort(int arr[],int len)

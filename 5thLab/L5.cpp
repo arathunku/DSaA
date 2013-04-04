@@ -20,28 +20,29 @@ void swap(int &a, int &b) {
   b = tmp;
 }
 void insertSort(int array[], int size){
-  for (int i=1;i<size;i++) {
-    int j = i;
-    while (j > 0 && (array[j-1] > array[j])) {
-      swap(array[j], array[j-1]);
+  int i,j,k,elem;
+  for(i=size-2;i>=0;i--)
+  {
+    j=size-1;
+    elem=array[i];
+    while(j>i && array[j]>=elem)
       j--;
-    }
-    showArray(array, size);
+    for(k=i;k<j;k++)
+      swap(array[k], array[k+1]);
+    array[j]=elem;
+    showArray(array,size);
   }
 }
 
 void bubbleSort(int array[], int size){
-  bool swapped = true;
-  int j = 0;
-  while (swapped) {
-    swapped = false;
-    j++;
-    for (int i = 0; i < size-j; i++) {
-      if (array[i] > array[i+1]) {
-        swap(array[i], array[i+1]);
-        swapped = true;
+  if(size == 1 ) return;
+  for(int i=0;i<size-1;i++){
+    for(int j=size-1;j>i;j--){
+      if(array[j] < array[j-1]){
+        swap(array[j], array[j-1]);
       }
     }
+    showArray(array, size);
   }
 }
 
