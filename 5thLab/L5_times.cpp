@@ -21,64 +21,34 @@ void swap(int &a, int &b) {
   b = tmp;
 }
 void insertSort(int array[], int size){
-  for (int i=1;i<size;i++) {
-    int j = i;
-    while (j > 0 && (array[j-1] > array[j])) {
-      swap(array[j], array[j-1]);
+  int i,j,k,elem;
+  for(i=size-2;i>=0;i--)
+  {
+    j=size-1;
+    elem=array[i];
+    while(j>i && array[j]>=elem)
       j--;
+    for(k=i;k<j;k++)
+      swap(array[k], array[k+1]);
+    array[j]=elem;
+    //showArray(array,size);
+  }
+}
+
+
+void bubbleSort(int array[], int size){
+  if(size == 1 ) return;
+  for(int i=0;i<size-1;i++){
+    for(int j=size-1;j>i;j--){
+      if(array[j] < array[j-1]){
+        swap(array[j], array[j-1]);
+      }
     }
     //showArray(array, size);
   }
 }
 
-void bubbleSort(int array[], int size){
-  bool swapped = true;
-  int j = 0;
-  while (swapped) {
-    swapped = false;
-    j++;
-    for (int i = 0; i < size-j; i++) {
-      if (array[i] > array[i+1]) {
-        swap(array[i], array[i+1]);
-        swapped = false;
-      }
-    }
-  }
-}
 void mergeSort(int arr[],int len);
-/*void mergeArr(int *arr, int *arrAux, int nFrom, int center, int nTo)
-{
-    nTo--;
-    int h,i,j,k;
-    h=nFrom;
-    i=nFrom;
-    j=center+1;
-    while( (h <= center) && ( j <= nTo) ) {
-        if(arr[h]<=arr[j]) {
-            arrAux[i]=arr[h];
-            h++;
-        } else {
-            arrAux[i]=arr[j];
-            j++;
-        }
-        i++;
-    }
-    cout << "-----------" << endl;
-    showArray(arrAux, i);
-    cout << "-----------" << endl;
-    if(h>center)  {
-        for(k=j; k<=nTo; k++)  {
-            arrAux[i]=arr[k];
-            i++;
-        }
-    } else {
-        for(k=h; k<=center; k++) {
-            arrAux[i]=arr[k];
-            i++;
-        }
-    }
-    for(k=nFrom; k<=nTo; k++) arr[k]=arrAux[k];
-}*/
 void mergeArr(int tab[],int t[], int pocz, int sr, int kon)
 {
   int i,j,q;
@@ -153,7 +123,7 @@ float testMerge(int n) {
 int main(){
   //clock_t tStart = clock();
   //printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
-  /*int test[] = {100,10000, 50000};
+  int test[] = {1};
   int n = sizeof(test)/sizeof(int);
   for(int i=0;i<n;i++){
     cout << "\t\t";
@@ -173,7 +143,8 @@ int main(){
     cout << "mergeSort:\t";
   for(int i=0;i<n;i++){
     printf("%.2fs\t\t", testMerge(test[i]));
-  }*/
+  }
+    /*
   int n = 5;
   int *array = new int[n];
   fillArray(array, n);
@@ -181,5 +152,5 @@ int main(){
   mergeSort(array, n);
   showArray(array, n);
   cout << endl;
-  return 0;
+  return 0;*/
 }
